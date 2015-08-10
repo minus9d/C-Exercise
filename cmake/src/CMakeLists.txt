@@ -28,3 +28,8 @@ endif (USE_MYMATH)
 add_executable (Tutorial tutorial.cxx)
 target_link_libraries (Tutorial MathFunctions)
 
+# make installしたときに/usr/bin, /usr/includeに配置されるべきファイルを指定
+install (TARGETS Tutorial DESTINATION bin)
+install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h"
+         DESTINATION include)
+
